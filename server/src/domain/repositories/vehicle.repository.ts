@@ -3,10 +3,13 @@ import { FindManyVehiclesDTO } from '../dtos/vehicle/findManyVehicles.dto';
 import { UpdateOneVehicleDTO } from '../dtos/vehicle/updateOneVehicle.dto';
 import { VehicleEntity } from '../entities/vehicle.entity';
 
+export const VEHICLE_REPOSITORY = 'VEHICLE_REPOSITORY';
+
 export interface VehicleRepository {
   createOne(dto: CreateOneVehicleDTO): Promise<VehicleEntity>;
   findMany(dto: FindManyVehiclesDTO): Promise<VehicleEntity[]>;
   findOneById(id: string): Promise<VehicleEntity | null>;
+  findOneByPlate(plate: string): Promise<VehicleEntity | null>;
   updateOne(dto: UpdateOneVehicleDTO): Promise<VehicleEntity | null>;
   deleteOneById(id: string): Promise<void>;
 }
