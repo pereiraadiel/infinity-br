@@ -1,8 +1,22 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Inject,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import {
   PRODUCT_SERVICE,
   ProductService,
 } from '../../domain/services/product.service';
+import { CreateOneProductRequest } from '../requests/product/createOneProduct.request';
+import {
+  UpdateOneProductBodyRequest,
+  UpdateOneProductParamsRequest,
+} from '../requests/product/updateOneProduct.request';
 
 @Controller('products')
 export class ProductController {
@@ -12,7 +26,25 @@ export class ProductController {
   ) {}
 
   @Post()
-  async createOne(@Body() request: any) {
+  async createOne(@Body() request: CreateOneProductRequest) {
     return await this.productService.createOne(request);
+  }
+
+  @Get()
+  async getMany() {
+    return await this.productService.findMany({});
+  }
+
+  @Patch(':id')
+  async UpdateOne(
+    @Body() request: UpdateOneProductBodyRequest,
+    @Param() { id }: UpdateOneProductParamsRequest,
+  ) {
+    return await this.productService.updateOne({ id, ...request });
+  }
+
+  @Delete(':id')
+  async deleteOne(@Param() { id }: { id: string }) {
+    return await this.productService.deleteOne(id);
   }
 }

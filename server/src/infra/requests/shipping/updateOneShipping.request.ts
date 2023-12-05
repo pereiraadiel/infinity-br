@@ -3,7 +3,7 @@ import { IsOptional, IsEnum, IsUUID, IsNumber, Min } from 'class-validator';
 import { ShippingStatusEnum } from '../../../domain/enums/shippingStatus.enum';
 import { randomUUID } from 'crypto';
 
-export class UpdateOneShippingRequest {
+export class UpdateOneShippingParamsRequest {
   @IsUUID()
   @ApiProperty({
     description: 'Id do envio (UUID)',
@@ -11,7 +11,9 @@ export class UpdateOneShippingRequest {
     example: randomUUID(),
   })
   id: string;
+}
 
+export class UpdateOneShippingBodyRequest {
   @IsOptional()
   @IsNumber()
   @Min(1)

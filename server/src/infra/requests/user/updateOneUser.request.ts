@@ -10,7 +10,7 @@ import { RoleEnum } from '../../../domain/enums/role.enum';
 import { ApiProperty } from '@nestjs/swagger';
 import { randomUUID } from 'crypto';
 
-export class UpdateOneUserRequest {
+export class UpdateOneUserParamsRequest {
   @IsUUID()
   @ApiProperty({
     description: 'Id do usuário (UUID)',
@@ -18,7 +18,9 @@ export class UpdateOneUserRequest {
     example: randomUUID(),
   })
   id: string;
+}
 
+export class UpdateOneUserBodyRequest {
   @IsOptional()
   @IsString()
   @MinLength(5)

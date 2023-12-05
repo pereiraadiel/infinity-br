@@ -9,7 +9,7 @@ import {
 } from 'class-validator';
 import { randomUUID } from 'crypto';
 
-export class UpdateOneVehicleTypeRequest {
+export class UpdateOneVehicleTypeParamsRequest {
   @IsUUID()
   @ApiProperty({
     description: 'Id do tipo de veiculo (UUID)',
@@ -17,7 +17,9 @@ export class UpdateOneVehicleTypeRequest {
     example: randomUUID(),
   })
   id: string;
+}
 
+export class UpdateOneVehicleTypeBodyRequest {
   @IsOptional()
   @IsString()
   @MinLength(3)

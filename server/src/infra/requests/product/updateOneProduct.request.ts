@@ -9,7 +9,7 @@ import {
 } from 'class-validator';
 import { randomUUID } from 'crypto';
 
-export class UpdateOneProductRequest {
+export class UpdateOneProductParamsRequest {
   @IsUUID()
   @ApiProperty({
     description: 'Id do produto (UUID)',
@@ -17,7 +17,9 @@ export class UpdateOneProductRequest {
     example: randomUUID(),
   })
   id: string;
+}
 
+export class UpdateOneProductBodyRequest {
   @IsOptional()
   @IsString()
   @MinLength(3)

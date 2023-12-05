@@ -8,7 +8,7 @@ import {
   FindManyVehiclesUsecase,
 } from '../usecases/vehicle/findManyVehicles.usecase';
 import {
-  UPDATE_ONE_VEHICLES_USECASE,
+  UPDATE_ONE_VEHICLE_USECASE,
   UpdateOneVehicleUsecase,
 } from '../usecases/vehicle/updateOneVehicle.usecase';
 import {
@@ -28,7 +28,7 @@ export class VehicleService {
     private readonly createOneVehicleUsecase: CreateOneVehicleUsecase,
     @Inject(FIND_MANY_VEHICLES_USECASE)
     private readonly findManyVehiclesUsecase: FindManyVehiclesUsecase,
-    @Inject(UPDATE_ONE_VEHICLES_USECASE)
+    @Inject(UPDATE_ONE_VEHICLE_USECASE)
     private readonly updateOneVehicleUsecase: UpdateOneVehicleUsecase,
     @Inject(DELETE_ONE_VEHICLE_USECASE)
     private readonly deleteOneVehicleUsecase: DeleteOneVehicleUsecase,

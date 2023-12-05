@@ -8,7 +8,7 @@ import {
   FindManyShippingsUsecase,
 } from '../usecases/shipping/findManyShippings.usecase';
 import {
-  UPDATE_ONE_SHIPPINGS_USECASE,
+  UPDATE_ONE_SHIPPING_USECASE,
   UpdateOneShippingUsecase,
 } from '../usecases/shipping/updateOneShipping.usecase';
 import {
@@ -28,7 +28,7 @@ export class ShippingService {
     private readonly createOneShippingUsecase: CreateOneShippingUsecase,
     @Inject(FIND_MANY_SHIPPINGS_USECASE)
     private readonly findManyShippingsUsecase: FindManyShippingsUsecase,
-    @Inject(UPDATE_ONE_SHIPPINGS_USECASE)
+    @Inject(UPDATE_ONE_SHIPPING_USECASE)
     private readonly updateOneShippingUsecase: UpdateOneShippingUsecase,
     @Inject(DELETE_ONE_SHIPPING_USECASE)
     private readonly deleteOneShippingUsecase: DeleteOneShippingUsecase,

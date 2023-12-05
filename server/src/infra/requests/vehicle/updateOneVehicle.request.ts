@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsOptional, IsString, IsUUID, MinLength } from 'class-validator';
 import { randomUUID } from 'crypto';
 
-export class UpdateOneVehicleRequest {
+export class UpdateOneVehicleParamsRequest {
   @IsUUID()
   @ApiProperty({
     description: 'Id do veiculo (UUID)',
@@ -10,7 +10,9 @@ export class UpdateOneVehicleRequest {
     example: randomUUID(),
   })
   id: string;
+}
 
+export class UpdateOneVehicleBodyRequest {
   @IsOptional()
   @IsString()
   @MinLength(5)
