@@ -3,4 +3,5 @@ export const ShippingStatusEnum = {
   accepted: 'accepted',
 } as const;
 
-export type ShippingStatusEnum = typeof ShippingStatusEnum;
+export type ShippingStatusEnum =
+  (typeof ShippingStatusEnum)[keyof typeof ShippingStatusEnum];

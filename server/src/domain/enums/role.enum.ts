@@ -3,4 +3,4 @@ export const RoleEnum = {
   Shopman: 'shopman',
 } as const;
 
-export type RoleEnum = typeof RoleEnum;
+export type RoleEnum = (typeof RoleEnum)[keyof typeof RoleEnum];

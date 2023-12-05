@@ -9,8 +9,12 @@ export class DeliveryEntity extends Entity {
   deliveryman: UserEntity;
   shipping: ShippingEntity;
 
-  constructor(entity: Omit<DeliveryEntity, 'createdAt' | 'id'>, id?: string) {
+  constructor(
+    entity: Omit<DeliveryEntity, 'status' | 'createdAt' | 'id'>,
+    id?: string,
+  ) {
     super(entity, id);
     Object.assign(this, entity);
+    this.status = DeliveryStatusEnum.oncourse;
   }
 }
