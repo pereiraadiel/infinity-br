@@ -5,6 +5,8 @@ import {
 } from '../../repositories/user.repository';
 import { FindManyUsersDTO } from '../../dtos/user/findManyUsers.dto';
 
+export const FIND_MANY_USERS_USECASE = 'FIND_MANY_USERS_USECASE';
+
 @Injectable()
 export class FindManyUsersUsecase {
   constructor(

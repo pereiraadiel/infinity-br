@@ -13,6 +13,8 @@ import {
   VehicleTypeRepository,
 } from '../../repositories/vehicleType.repository';
 
+export const CREATE_ONE_SHIPPING_USECASE = 'CREATE_ONE_SHIPPING_USECASE';
+
 @Injectable()
 export class CreateOneShippingUsecase {
   constructor(

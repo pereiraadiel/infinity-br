@@ -4,6 +4,9 @@ import {
   VehicleTypeRepository,
 } from '../../repositories/vehicleType.repository';
 
+export const DELETE_ONE_VEHICLE_TYPE_USECASE =
+  'DELETE_ONE_VEHICLE_TYPE_USECASE';
+
 @Injectable()
 export class DeleteOneVehicleTypeUsecase {
   constructor(

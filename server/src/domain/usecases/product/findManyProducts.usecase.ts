@@ -5,6 +5,8 @@ import {
 } from '../../repositories/product.repository';
 import { FindManyProductsDTO } from '../../dtos/product/findManyProducts.dto';
 
+export const FIND_MANY_PRODUCTS_USECASE = 'FIND_MANY_PRODUCTS_USECASE';
+
 @Injectable()
 export class FindManyProductsUsecase {
   constructor(

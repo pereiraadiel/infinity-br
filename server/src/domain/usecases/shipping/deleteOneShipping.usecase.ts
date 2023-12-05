@@ -4,6 +4,8 @@ import {
   ShippingRepository,
 } from '../../repositories/shipping.repository';
 
+export const DELETE_ONE_SHIPPING_USECASE = 'DELETE_ONE_SHIPPING_USECASE';
+
 @Injectable()
 export class DeleteOneShippingUsecase {
   constructor(

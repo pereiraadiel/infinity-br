@@ -4,6 +4,8 @@ import {
   UserRepository,
 } from '../../repositories/user.repository';
 
+export const DELETE_ONE_USER_USECASE = 'DELETE_ONE_USER_USECASE';
+
 @Injectable()
 export class DeleteOneUserUsecase {
   constructor(

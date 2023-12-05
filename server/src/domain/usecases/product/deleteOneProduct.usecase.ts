@@ -4,6 +4,8 @@ import {
   ProductRepository,
 } from '../../repositories/product.repository';
 
+export const DELETE_ONE_PRODUCT_USECASE = 'DELETE_ONE_PRODUCT_USECASE';
+
 @Injectable()
 export class DeleteOneProductUsecase {
   constructor(

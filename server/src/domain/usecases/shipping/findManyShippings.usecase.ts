@@ -5,6 +5,8 @@ import {
 } from '../../repositories/shipping.repository';
 import { FindManyShippingsDTO } from '../../dtos/shipping/findManyShippings.dto';
 
+export const FIND_MANY_SHIPPINGS_USECASE = 'FIND_MANY_SHIPPINGS_USECASE';
+
 @Injectable()
 export class FindManyShippingsUsecase {
   constructor(

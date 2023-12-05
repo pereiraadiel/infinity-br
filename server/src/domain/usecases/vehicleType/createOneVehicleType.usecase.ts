@@ -5,6 +5,9 @@ import {
 } from '../../repositories/vehicleType.repository';
 import { CreateOneVehicleTypeDTO } from '../../dtos/vehicleType/createOneVehicleType.dto';
 
+export const CREATE_ONE_VEHICLE_TYPE_USECASE =
+  'CREATE_ONE_VEHICLE_TYPE_USECASE';
+
 @Injectable()
 export class CreateOneVehicleTypeUsecase {
   constructor(

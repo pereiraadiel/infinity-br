@@ -5,6 +5,8 @@ import {
 } from '../../repositories/user.repository';
 import { UpdateOneUserDTO } from '../../dtos/user/updateOneUser.dto';
 
+export const UPDATE_ONE_USERS_USECASE = 'UPDATE_ONE_USERS_USECASE';
+
 @Injectable()
 export class UpdateOneUserUsecase {
   constructor(

@@ -5,6 +5,9 @@ import {
 } from '../../repositories/vehicleType.repository';
 import { FindManyVehicleTypesDTO } from '../../dtos/vehicleType/findManyVehicleTypes.dto';
 
+export const FIND_MANY_VEHICLE_TYPES_USECASE =
+  'FIND_MANY_VEHICLE_TYPES_USECASE';
+
 @Injectable()
 export class FindManyVehicleTypesUsecase {
   constructor(

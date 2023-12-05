@@ -9,6 +9,8 @@ import {
   VehicleTypeRepository,
 } from '../../repositories/vehicleType.repository';
 
+export const CREATE_ONE_VEHICLE_USECASE = 'CREATE_ONE_VEHICLE_USECASE';
+
 @Injectable()
 export class CreateOneVehicleUsecase {
   constructor(

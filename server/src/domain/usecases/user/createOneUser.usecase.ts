@@ -5,6 +5,8 @@ import {
 } from '../../repositories/user.repository';
 import { CreateOneUserDTO } from '../../dtos/user/createOneUser.dto';
 
+export const CREATE_ONE_USER_USECASE = 'CREATE_ONE_USER_USECASE';
+
 @Injectable()
 export class CreateOneUserUsecase {
   constructor(
