@@ -5,8 +5,8 @@ import {
 } from '../../repositories/vehicleType.repository';
 import { UpdateOneVehicleTypeDTO } from '../../dtos/vehicleType/updateOneVehicleType.dto';
 
-export const UPDATE_ONE_VEHICLE_TYPES_USECASE =
-  'UPDATE_ONE_VEHICLE_TYPES_USECASE';
+export const UPDATE_ONE_VEHICLE_TYPE_USECASE =
+  'UPDATE_ONE_VEHICLE_TYPE_USECASE';
 
 @Injectable()
 export class UpdateOneVehicleTypeUsecase {
