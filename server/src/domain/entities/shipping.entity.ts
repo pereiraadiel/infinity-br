@@ -1,10 +1,12 @@
-import { ShippingSituationEnum } from '../enums/shippingSituation.enum';
-import { DeliveryEntity } from './delivery.entity';
 import { Entity } from './entity';
+import { DeliveryEntity } from './delivery.entity';
+import { ProductEntity } from './product.entity';
+import { VehicleTypeEntity } from './vehicleType.entity';
+import { ShippingStatusEnum } from '../enums/shippingStatus.enum';
 
 export class ShippingEntity extends Entity {
   distanceInMeters: number;
-  situation: ShippingSituationEnum;
+  status: ShippingStatusEnum;
   vehicleType: VehicleTypeEntity;
   product: ProductEntity;
   delivery: DeliveryEntity;
