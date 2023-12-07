@@ -8,7 +8,7 @@ import {
   FindManyProductsUsecase,
 } from '../usecases/product/findManyProducts.usecase';
 import {
-  UPDATE_ONE_PRODUCTS_USECASE,
+  UPDATE_ONE_PRODUCT_USECASE,
   UpdateOneProductUsecase,
 } from '../usecases/product/updateOneProduct.usecase';
 import {
@@ -28,7 +28,7 @@ export class ProductService {
     private readonly createOneProductUsecase: CreateOneProductUsecase,
     @Inject(FIND_MANY_PRODUCTS_USECASE)
     private readonly findManyProductsUsecase: FindManyProductsUsecase,
-    @Inject(UPDATE_ONE_PRODUCTS_USECASE)
+    @Inject(UPDATE_ONE_PRODUCT_USECASE)
     private readonly updateOneProductUsecase: UpdateOneProductUsecase,
     @Inject(DELETE_ONE_PRODUCT_USECASE)
     private readonly deleteOneProductUsecase: DeleteOneProductUsecase,

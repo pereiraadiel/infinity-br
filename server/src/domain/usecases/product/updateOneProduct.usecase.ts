@@ -4,11 +4,16 @@ import {
   ProductRepository,
 } from '../../repositories/product.repository';
 import { UpdateOneProductDTO } from '../../dtos/product/updateOneProduct.dto';
+import { NotFoundException } from '../../exceptions/notFound.exception';
+import { AlreadyExistsException } from '../../exceptions/alreadyExists.exception';
+import { CatchExceptions } from '../catchExceptions';
 
-export const UPDATE_ONE_PRODUCTS_USECASE = 'UPDATE_ONE_PRODUCTS_USECASE';
+export const UPDATE_ONE_PRODUCT_USECASE = 'UPDATE_ONE_PRODUCT_USECASE';
 
 @Injectable()
 export class UpdateOneProductUsecase {
+  private SERVICE_NAME = 'Update One Product Usecase';
+
   constructor(
     @Inject(PRODUCT_REPOSITORY)
     private readonly productRepository: ProductRepository,
@@ -17,20 +22,20 @@ export class UpdateOneProductUsecase {
   async handle(dto: UpdateOneProductDTO) {
     try {
       const product = await this.productRepository.findOneById(dto.id);
-      if (!product) throw new Error('product not found');
+      if (!product) throw new NotFoundException([], this.SERVICE_NAME);
 
       if (dto.name !== undefined) {
         const productNameExists = await this.productRepository.findOneByName(
           dto.name,
         );
         if (productNameExists)
-          throw new Error('product with given name already exist');
+          throw new AlreadyExistsException([], this.SERVICE_NAME);
         return await this.productRepository.updateOne(dto);
       } else {
         return await this.productRepository.updateOne(dto);
       }
     } catch (error) {
-      console.error(error);
+      CatchExceptions(error, [], this.SERVICE_NAME);
     }
   }
 }

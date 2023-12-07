@@ -4,11 +4,14 @@ import {
   ProductRepository,
 } from '../../repositories/product.repository';
 import { FindManyProductsDTO } from '../../dtos/product/findManyProducts.dto';
+import { CatchExceptions } from '../catchExceptions';
 
 export const FIND_MANY_PRODUCTS_USECASE = 'FIND_MANY_PRODUCTS_USECASE';
 
 @Injectable()
 export class FindManyProductsUsecase {
+  private SERVICE_NAME = 'Find Many Products Usecase';
+
   constructor(
     @Inject(PRODUCT_REPOSITORY)
     private readonly productRepository: ProductRepository,
@@ -18,7 +21,7 @@ export class FindManyProductsUsecase {
     try {
       return await this.productRepository.findMany(dto);
     } catch (error) {
-      console.error(error);
+      CatchExceptions(error, [], this.SERVICE_NAME);
     }
   }
 }

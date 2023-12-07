@@ -1,3 +1,5 @@
+import { randomUUID } from 'crypto';
+
 export class Entity {
   id: string;
   createdAt: Date;
@@ -5,7 +7,7 @@ export class Entity {
 
   constructor(entity: Omit<Entity, 'createdAt' | 'id'>, id?: string) {
     Object.assign(this, entity);
-    if (!this.id) this.id = id;
+    if (!this.id) this.id = id || randomUUID();
     if (!this.createdAt) this.createdAt = new Date();
   }
 }

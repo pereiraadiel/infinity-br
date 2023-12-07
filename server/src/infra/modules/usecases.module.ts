@@ -8,7 +8,10 @@ import {
   FIND_MANY_PRODUCTS_USECASE,
   FindManyProductsUsecase,
 } from '../../domain/usecases/product/findManyProducts.usecase';
-import { UpdateOneProductUsecase } from '../../domain/usecases/product/updateOneProduct.usecase';
+import {
+  UPDATE_ONE_PRODUCT_USECASE,
+  UpdateOneProductUsecase,
+} from '../../domain/usecases/product/updateOneProduct.usecase';
 import {
   DELETE_ONE_PRODUCT_USECASE,
   DeleteOneProductUsecase,
@@ -75,6 +78,7 @@ import {
   UPDATE_ONE_VEHICLE_TYPE_USECASE,
   UpdateOneVehicleTypeUsecase,
 } from '../../domain/usecases/vehicleType/updateOneVehicleType.usecase';
+import { RepositoriesModule } from './repositories.module';
 
 // ----------------------------------------------------------
 
@@ -87,7 +91,7 @@ const findManyProducts = {
   useClass: FindManyProductsUsecase,
 };
 const updateOneProduct = {
-  provide: CREATE_ONE_PRODUCT_USECASE,
+  provide: UPDATE_ONE_PRODUCT_USECASE,
   useClass: UpdateOneProductUsecase,
 };
 const deleteOneProduct = {
@@ -164,7 +168,7 @@ const deleteOneVehicleType = {
 };
 
 @Module({
-  imports: [],
+  imports: [RepositoriesModule],
   providers: [
     createOneProduct,
     findManyProducts,

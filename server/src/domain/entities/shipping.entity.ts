@@ -7,9 +7,9 @@ import { ShippingStatusEnum } from '../enums/shippingStatus.enum';
 export class ShippingEntity extends Entity {
   distanceInMeters: number;
   status: ShippingStatusEnum;
-  vehicleType: VehicleTypeEntity;
-  product: ProductEntity;
-  delivery: DeliveryEntity;
+  vehicleType?: VehicleTypeEntity;
+  product?: ProductEntity;
+  delivery?: DeliveryEntity;
 
   constructor(entity: Omit<ShippingEntity, 'createdAt' | 'id'>, id?: string) {
     super(entity, id);

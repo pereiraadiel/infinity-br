@@ -6,7 +6,7 @@ import { DeliveryEntity } from '../entities/delivery.entity';
 export const DELIVERY_REPOSITORY = 'DELIVERY_REPOSITORY';
 
 export interface DeliveryRepository {
-  createOne(dto: CreateOneDeliveryDTO): Promise<DeliveryEntity>;
+  createOne(dto: CreateOneDeliveryDTO, price: number): Promise<DeliveryEntity>;
   findMany(dto: FindManyDeliveriesDTO): Promise<DeliveryEntity[]>;
   findOneById(id: string): Promise<DeliveryEntity | null>;
   updateOne(dto: UpdateOneDeliveryDTO): Promise<DeliveryEntity | null>;

@@ -6,8 +6,8 @@ import { DeliveryStatusEnum } from '../enums/deliveryStatus.enum';
 export class DeliveryEntity extends Entity {
   price: number;
   status: DeliveryStatusEnum;
-  deliveryman: UserEntity;
-  shipping: ShippingEntity;
+  deliveryman?: UserEntity;
+  shipping?: ShippingEntity;
 
   constructor(
     entity: Omit<DeliveryEntity, 'status' | 'createdAt' | 'id'>,
