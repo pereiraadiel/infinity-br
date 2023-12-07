@@ -98,8 +98,17 @@ import {
   DELETE_ONE_DELIVERY_USECASE,
   DeleteOneDeliveryUsecase,
 } from '../../domain/usecases/delivery/deleteOneDelivery.usecase';
+import {
+  SIGN_USER_IN_USECASE,
+  SignUserInUsecase,
+} from '../../domain/usecases/auth/signUserIn.usecase';
 
 // ----------------------------------------------------------
+
+const signUserIn = {
+  provide: SIGN_USER_IN_USECASE,
+  useClass: SignUserInUsecase,
+};
 
 const createOneProduct = {
   provide: CREATE_ONE_PRODUCT_USECASE,
@@ -206,6 +215,8 @@ const deleteOneVehicleType = {
 @Module({
   imports: [RepositoriesModule],
   providers: [
+    signUserIn,
+
     createOneProduct,
     findManyProducts,
     updateOneProduct,
@@ -237,6 +248,8 @@ const deleteOneVehicleType = {
     deleteOneVehicleType,
   ],
   exports: [
+    signUserIn,
+
     createOneProduct,
     findManyProducts,
     updateOneProduct,

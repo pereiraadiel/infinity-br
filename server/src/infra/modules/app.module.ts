@@ -9,10 +9,14 @@ import { UserModule } from './user.module';
 import { VehicleModule } from './vehicle.module';
 import { VehicleTypeModule } from './vehicleType.module';
 import { DeliveryModule } from './delivery.module';
+import { HashModule } from './hash.module';
+import { AuthModule } from './auth.module';
 
 @Module({
   imports: [
     PrismaModule,
+    AuthModule,
+    HashModule,
     UsecasesModule,
     RepositoriesModule,
     ServicesModule,

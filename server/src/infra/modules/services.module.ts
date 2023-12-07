@@ -22,7 +22,12 @@ import {
   DELIVERY_SERVICE,
   DeliveryService,
 } from '../../domain/services/delivery.service';
+import { AUTH_SERVICE, AuthService } from '../../domain/services/auth.service';
 
+const authService = {
+  provide: AUTH_SERVICE,
+  useClass: AuthService,
+};
 const productService = {
   provide: PRODUCT_SERVICE,
   useClass: ProductService,
@@ -51,6 +56,7 @@ const vehicleTypeService = {
 @Module({
   imports: [UsecasesModule, RepositoriesModule],
   providers: [
+    authService,
     productService,
     userService,
     deliveryService,
@@ -59,6 +65,7 @@ const vehicleTypeService = {
     shippingService,
   ],
   exports: [
+    authService,
     productService,
     userService,
     deliveryService,
