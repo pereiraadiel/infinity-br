@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: pg
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+      POSTGRES_DB: ${POSTGRES_DB:-infinitybr}
+    ports:
+      - "5432:5432"
+    networks:
+      - infinitybr-network
+
+  server:
+    build: server
+    container_name: infinitybr-server
+    ports:
+      - 8008:3000
+    env_file: server/.docker.env
+    command: sh -c "yarn db:seed >> logs.txt && yarn start:dev"
+    depends_on:
+      - "postgres"
+    networks:
+      - infinitybr-network
+
+networks:
+  infinitybr-network:
+    driver: bridge
