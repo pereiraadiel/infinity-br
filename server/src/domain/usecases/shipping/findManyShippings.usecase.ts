@@ -4,11 +4,14 @@ import {
   ShippingRepository,
 } from '../../repositories/shipping.repository';
 import { FindManyShippingsDTO } from '../../dtos/shipping/findManyShippings.dto';
+import { CatchExceptions } from '../catchExceptions';
 
 export const FIND_MANY_SHIPPINGS_USECASE = 'FIND_MANY_SHIPPINGS_USECASE';
 
 @Injectable()
 export class FindManyShippingsUsecase {
+  private SERVICE_NAME = 'Find Many Shippings Usecase';
+
   constructor(
     @Inject(SHIPPING_REPOSITORY)
     private readonly shippingRepository: ShippingRepository,
@@ -18,7 +21,7 @@ export class FindManyShippingsUsecase {
     try {
       return await this.shippingRepository.findMany(dto);
     } catch (error) {
-      console.error(error);
+      CatchExceptions(error, [], this.SERVICE_NAME);
     }
   }
 }

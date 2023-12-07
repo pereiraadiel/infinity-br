@@ -29,7 +29,14 @@ export class UpdateOneProductUsecase {
           dto.name,
         );
         if (productNameExists)
-          throw new AlreadyExistsException([], this.SERVICE_NAME);
+          throw new AlreadyExistsException(
+            [
+              {
+                message: 'já existe um produto com o mesmo nome',
+              },
+            ],
+            this.SERVICE_NAME,
+          );
         return await this.productRepository.updateOne(dto);
       } else {
         return await this.productRepository.updateOne(dto);

@@ -6,6 +6,7 @@ import { ShippingEntity } from '../../domain/entities/shipping.entity';
 import { ShippingRepository } from '../../domain/repositories/shipping.repository';
 import { PrismaProvider } from '../providers/prisma.provider';
 import { ShippingStatusEnum } from '../../domain/enums/shippingStatus.enum';
+import { randomUUID } from 'crypto';
 
 @Injectable()
 export class ShippingConcreteRepository implements ShippingRepository {
@@ -24,17 +25,13 @@ export class ShippingConcreteRepository implements ShippingRepository {
         status: entity.status,
         product: {
           connect: {
-            id: entity.product.id,
+            id: dto.productId,
           },
         },
-        delivery: {
-          connect: {
-            id: entity.delivery.id,
-          },
-        },
+        delivery: undefined,
         vehicleType: {
           connect: {
-            id: entity.vehicleType.id,
+            id: dto.vehicleTypeId,
           },
         },
         createdAt: entity.createdAt,

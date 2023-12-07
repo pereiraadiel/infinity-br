@@ -8,7 +8,7 @@ import {
   FindManyUsersUsecase,
 } from '../usecases/user/findManyUsers.usecase';
 import {
-  UPDATE_ONE_USERS_USECASE,
+  UPDATE_ONE_USER_USECASE,
   UpdateOneUserUsecase,
 } from '../usecases/user/updateOneUser.usecase';
 import {
@@ -28,7 +28,7 @@ export class UserService {
     private readonly createOneUserUsecase: CreateOneUserUsecase,
     @Inject(FIND_MANY_USERS_USECASE)
     private readonly findManyUsersUsecase: FindManyUsersUsecase,
-    @Inject(UPDATE_ONE_USERS_USECASE)
+    @Inject(UPDATE_ONE_USER_USECASE)
     private readonly updateOneUserUsecase: UpdateOneUserUsecase,
     @Inject(DELETE_ONE_USER_USECASE)
     private readonly deleteOneUserUsecase: DeleteOneUserUsecase,

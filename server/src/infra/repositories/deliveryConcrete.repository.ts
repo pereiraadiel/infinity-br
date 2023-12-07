@@ -16,6 +16,7 @@ export class DeliveryConcreteRepository implements DeliveryRepository {
   ): Promise<DeliveryEntity> {
     const entity = new DeliveryEntity({
       ...dto,
+      price,
     });
 
     const delivery = await this.database.delivery.create({
@@ -42,7 +43,18 @@ export class DeliveryConcreteRepository implements DeliveryRepository {
 
   async findMany(dto: FindManyDeliveriesDTO): Promise<DeliveryEntity[]> {
     return await this.database.delivery.findMany({
-      where: dto,
+      where: {
+        OR: [
+          {
+            status: dto.status,
+          },
+          {
+            deliveryman: {
+              id: dto.deliverymanId,
+            },
+          },
+        ],
+      },
     });
   }
 

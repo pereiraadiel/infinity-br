@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { randomUUID } from 'crypto';
 import { DeliveryStatusEnum } from '../../../domain/enums/deliveryStatus.enum';
 
-export class UpdateOneDeliveryRequest {
+export class UpdateOneDeliveryParamsRequest {
   @IsUUID()
   @ApiProperty({
     description: 'Id do frete/entrega (UUID)',
@@ -11,7 +11,9 @@ export class UpdateOneDeliveryRequest {
     example: randomUUID(),
   })
   id: string;
+}
 
+export class UpdateOneDeliveryBodyRequest {
   @IsOptional()
   @IsEnum(DeliveryStatusEnum)
   @ApiProperty({

@@ -4,11 +4,14 @@ import {
   UserRepository,
 } from '../../repositories/user.repository';
 import { FindManyUsersDTO } from '../../dtos/user/findManyUsers.dto';
+import { CatchExceptions } from '../catchExceptions';
 
 export const FIND_MANY_USERS_USECASE = 'FIND_MANY_USERS_USECASE';
 
 @Injectable()
 export class FindManyUsersUsecase {
+  private SERVICE_NAME = 'Find Many Users Usecase';
+
   constructor(
     @Inject(USER_REPOSITORY)
     private readonly userRepository: UserRepository,
@@ -18,7 +21,7 @@ export class FindManyUsersUsecase {
     try {
       return await this.userRepository.findMany(dto);
     } catch (error) {
-      console.error(error);
+      CatchExceptions(error, [], this.SERVICE_NAME);
     }
   }
 }

@@ -21,6 +21,7 @@ export class CreateOneShippingRequest {
   })
   vehicleTypeId: string;
 
+  @IsUUID()
   @ApiProperty({
     description: 'Id do produto',
     example: randomUUID(),

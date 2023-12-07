@@ -25,7 +25,10 @@ import {
   FIND_MANY_USERS_USECASE,
   FindManyUsersUsecase,
 } from '../../domain/usecases/user/findManyUsers.usecase';
-import { UpdateOneUserUsecase } from '../../domain/usecases/user/updateOneUser.usecase';
+import {
+  UPDATE_ONE_USER_USECASE,
+  UpdateOneUserUsecase,
+} from '../../domain/usecases/user/updateOneUser.usecase';
 import {
   DELETE_ONE_USER_USECASE,
   DeleteOneUserUsecase,
@@ -79,6 +82,22 @@ import {
   UpdateOneVehicleTypeUsecase,
 } from '../../domain/usecases/vehicleType/updateOneVehicleType.usecase';
 import { RepositoriesModule } from './repositories.module';
+import {
+  CREATE_ONE_DELIVERY_USECASE,
+  CreateOneDeliveryUsecase,
+} from '../../domain/usecases/delivery/createOneDelivery.usecase';
+import {
+  FIND_MANY_DELIVERIES_USECASE,
+  FindManyDeliveriesUsecase,
+} from '../../domain/usecases/delivery/findManyDeliveries.usecase';
+import {
+  UPDATE_ONE_DELIVERY_USECASE,
+  UpdateOneDeliveryUsecase,
+} from '../../domain/usecases/delivery/updateOneDelivery.usecase';
+import {
+  DELETE_ONE_DELIVERY_USECASE,
+  DeleteOneDeliveryUsecase,
+} from '../../domain/usecases/delivery/deleteOneDelivery.usecase';
 
 // ----------------------------------------------------------
 
@@ -108,7 +127,7 @@ const findManyUsers = {
   useClass: FindManyUsersUsecase,
 };
 const updateOneUser = {
-  provide: CREATE_ONE_USER_USECASE,
+  provide: UPDATE_ONE_USER_USECASE,
   useClass: UpdateOneUserUsecase,
 };
 const deleteOneUser = {
@@ -131,6 +150,23 @@ const updateOneShipping = {
 const deleteOneShipping = {
   provide: DELETE_ONE_SHIPPING_USECASE,
   useClass: DeleteOneShippingUsecase,
+};
+
+const createOneDelivery = {
+  provide: CREATE_ONE_DELIVERY_USECASE,
+  useClass: CreateOneDeliveryUsecase,
+};
+const findManyDeliveries = {
+  provide: FIND_MANY_DELIVERIES_USECASE,
+  useClass: FindManyDeliveriesUsecase,
+};
+const updateOneDelivery = {
+  provide: UPDATE_ONE_DELIVERY_USECASE,
+  useClass: UpdateOneDeliveryUsecase,
+};
+const deleteOneDelivery = {
+  provide: DELETE_ONE_DELIVERY_USECASE,
+  useClass: DeleteOneDeliveryUsecase,
 };
 
 const createOneVehicle = {
@@ -180,6 +216,11 @@ const deleteOneVehicleType = {
     updateOneUser,
     deleteOneUser,
 
+    createOneDelivery,
+    findManyDeliveries,
+    updateOneDelivery,
+    deleteOneDelivery,
+
     createOneShipping,
     findManyShippings,
     updateOneShipping,
@@ -205,6 +246,11 @@ const deleteOneVehicleType = {
     findManyUsers,
     updateOneUser,
     deleteOneUser,
+
+    createOneDelivery,
+    findManyDeliveries,
+    updateOneDelivery,
+    deleteOneDelivery,
 
     createOneShipping,
     findManyShippings,

@@ -3,11 +3,15 @@ import {
   SHIPPING_REPOSITORY,
   ShippingRepository,
 } from '../../repositories/shipping.repository';
+import { NotFoundException } from '../../exceptions/notFound.exception';
+import { CatchExceptions } from '../catchExceptions';
 
 export const DELETE_ONE_SHIPPING_USECASE = 'DELETE_ONE_SHIPPING_USECASE';
 
 @Injectable()
 export class DeleteOneShippingUsecase {
+  private SERVICE_NAME = 'Delete One Shipping Usecase';
+
   constructor(
     @Inject(SHIPPING_REPOSITORY)
     private readonly shippingRepository: ShippingRepository,
@@ -16,11 +20,11 @@ export class DeleteOneShippingUsecase {
   async handle(id: string) {
     try {
       const shipping = await this.shippingRepository.findOneById(id);
-      if (!shipping) throw new Error('shipping not found');
+      if (!shipping) throw new NotFoundException([], this.SERVICE_NAME);
 
       return await this.shippingRepository.deleteOneById(id);
     } catch (error) {
-      console.error(error);
+      CatchExceptions(error, [], this.SERVICE_NAME);
     }
   }
 }
