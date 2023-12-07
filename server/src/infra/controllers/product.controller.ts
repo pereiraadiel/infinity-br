@@ -18,6 +18,8 @@ import {
   UpdateOneProductParamsRequest,
 } from '../requests/product/updateOneProduct.request';
 import { ApiTags } from '@nestjs/swagger';
+import { Role } from '../decorators/role.decorator';
+import { RoleEnum } from '../../domain/enums/role.enum';
 
 @ApiTags('products')
 @Controller('products')
@@ -28,6 +30,7 @@ export class ProductController {
   ) {}
 
   @Post()
+  @Role(RoleEnum.Shopman)
   async createOne(@Body() request: CreateOneProductRequest) {
     return await this.productService.createOne(request);
   }
@@ -38,6 +41,7 @@ export class ProductController {
   }
 
   @Patch(':id')
+  @Role(RoleEnum.Shopman)
   async UpdateOne(
     @Body() request: UpdateOneProductBodyRequest,
     @Param() { id }: UpdateOneProductParamsRequest,
@@ -46,6 +50,7 @@ export class ProductController {
   }
 
   @Delete(':id')
+  @Role(RoleEnum.Shopman)
   async deleteOne(@Param() { id }: { id: string }) {
     return await this.productService.deleteOne(id);
   }

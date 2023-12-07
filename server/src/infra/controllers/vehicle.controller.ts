@@ -18,6 +18,8 @@ import {
   UpdateOneVehicleParamsRequest,
 } from '../requests/vehicle/updateOneVehicle.request';
 import { ApiTags } from '@nestjs/swagger';
+import { RoleEnum } from '../../domain/enums/role.enum';
+import { Role } from '../decorators/role.decorator';
 
 @ApiTags('vehicles')
 @Controller('vehicles')
@@ -28,6 +30,7 @@ export class VehicleController {
   ) {}
 
   @Post()
+  @Role(RoleEnum.Shopman)
   async createOne(@Body() request: CreateOneVehicleRequest) {
     return await this.vehicleService.createOne(request);
   }
@@ -38,6 +41,7 @@ export class VehicleController {
   }
 
   @Patch(':id')
+  @Role(RoleEnum.Shopman)
   async UpdateOne(
     @Body() request: UpdateOneVehicleBodyRequest,
     @Param() { id }: UpdateOneVehicleParamsRequest,
@@ -46,6 +50,7 @@ export class VehicleController {
   }
 
   @Delete(':id')
+  @Role(RoleEnum.Shopman)
   async deleteOne(@Param() { id }: { id: string }) {
     return await this.vehicleService.deleteOne(id);
   }

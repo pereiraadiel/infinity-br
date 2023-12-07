@@ -12,6 +12,9 @@ import { DeliveryModule } from './delivery.module';
 import { HashModule } from './hash.module';
 import { AuthModule } from './auth.module';
 import { AuthInterceptorModule } from './authInterceptor.module';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from '../guards/auth.guard';
+import { RoleGuard } from '../guards/role.guard';
 
 @Module({
   imports: [
@@ -28,6 +31,10 @@ import { AuthInterceptorModule } from './authInterceptor.module';
     UserModule,
     VehicleModule,
     VehicleTypeModule,
+  ],
+  providers: [
+    { provide: APP_GUARD, useClass: AuthGuard },
+    { provide: APP_GUARD, useClass: RoleGuard },
   ],
 })
 export class AppModule {}

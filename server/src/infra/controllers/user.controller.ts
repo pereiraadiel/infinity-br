@@ -15,7 +15,6 @@ import {
   UpdateOneUserParamsRequest,
 } from '../requests/user/updateOneUser.request';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from '../decorators/public.decorator';
 
 @ApiTags('users')
 @Controller('users')
@@ -26,7 +25,6 @@ export class UserController {
   ) {}
 
   @Post()
-  @Public()
   async createOne(@Body() request: CreateOneUserRequest) {
     return await this.userService.createOne(request);
   }
