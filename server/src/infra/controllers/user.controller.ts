@@ -14,7 +14,9 @@ import {
   UpdateOneUserBodyRequest,
   UpdateOneUserParamsRequest,
 } from '../requests/user/updateOneUser.request';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller('users')
 export class UserController {
   constructor(

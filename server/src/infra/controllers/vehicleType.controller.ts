@@ -17,7 +17,9 @@ import {
   UpdateOneVehicleTypeBodyRequest,
   UpdateOneVehicleTypeParamsRequest,
 } from '../requests/vehicleType/updateOneVehicleType.request';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('vehicleTypes')
 @Controller('vehicleTypes')
 export class VehicleTypeController {
   constructor(

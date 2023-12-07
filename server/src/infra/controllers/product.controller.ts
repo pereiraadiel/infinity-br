@@ -17,7 +17,9 @@ import {
   UpdateOneProductBodyRequest,
   UpdateOneProductParamsRequest,
 } from '../requests/product/updateOneProduct.request';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('products')
 @Controller('products')
 export class ProductController {
   constructor(

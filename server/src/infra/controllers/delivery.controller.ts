@@ -17,7 +17,9 @@ import {
   UpdateOneDeliveryBodyRequest,
   UpdateOneDeliveryParamsRequest,
 } from '../requests/delivery/updateOneDelivery.request';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('deliveries')
 @Controller('deliveries')
 export class DeliveryController {
   constructor(
