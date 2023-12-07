@@ -19,7 +19,11 @@ export class FindManyUsersUsecase {
 
   async handle(dto: FindManyUsersDTO) {
     try {
-      return await this.userRepository.findMany(dto);
+      const users = await this.userRepository.findMany(dto);
+      return users.map((user) => {
+        delete user.password;
+        return user;
+      });
     } catch (error) {
       CatchExceptions(error, [], this.SERVICE_NAME);
     }

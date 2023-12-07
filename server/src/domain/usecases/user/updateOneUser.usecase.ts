@@ -23,7 +23,9 @@ export class UpdateOneUserUsecase {
       const user = await this.userRepository.findOneById(dto.id);
       if (!user) throw new NotFoundException([], this.SERVICE_NAME);
 
-      return await this.userRepository.updateOne(dto);
+      const createdUser = await this.userRepository.updateOne(dto);
+      delete createdUser.password;
+      return createdUser;
     } catch (error) {
       CatchExceptions(error, [], this.SERVICE_NAME);
     }

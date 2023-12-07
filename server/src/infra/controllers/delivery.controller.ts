@@ -18,6 +18,8 @@ import {
   UpdateOneDeliveryParamsRequest,
 } from '../requests/delivery/updateOneDelivery.request';
 import { ApiTags } from '@nestjs/swagger';
+import { Role } from '../decorators/role.decorator';
+import { RoleEnum } from '../../domain/enums/role.enum';
 
 @ApiTags('deliveries')
 @Controller('deliveries')
@@ -28,6 +30,7 @@ export class DeliveryController {
   ) {}
 
   @Post()
+  @Role(RoleEnum.Deliveryman)
   async createOne(@Body() request: CreateOneDeliveryRequest) {
     return await this.deliveryService.createOne(request);
   }
@@ -38,6 +41,7 @@ export class DeliveryController {
   }
 
   @Patch(':id')
+  @Role(RoleEnum.Deliveryman)
   async UpdateOne(
     @Body() request: UpdateOneDeliveryBodyRequest,
     @Param() { id }: UpdateOneDeliveryParamsRequest,
@@ -46,6 +50,7 @@ export class DeliveryController {
   }
 
   @Delete(':id')
+  @Role(RoleEnum.Deliveryman)
   async deleteOne(@Param() { id }: { id: string }) {
     return await this.deliveryService.deleteOne(id);
   }

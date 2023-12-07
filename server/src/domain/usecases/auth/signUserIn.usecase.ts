@@ -35,11 +35,13 @@ export class SignUserInUsecase {
       if (!isPasswordValid)
         throw new UnauthorizedException([], this.SERVICE_NAME);
 
-      return this.jwtService.sign({
+      const token = this.jwtService.sign({
         id: user.id,
         name: user.name,
         role: user.role,
       });
+
+      return { token };
     } catch (error) {
       CatchExceptions(error, [], this.SERVICE_NAME);
     }

@@ -25,10 +25,12 @@ export class CreateOneUserUsecase {
       const user = await this.userRepository.findOneByEmail(dto.email);
       if (user) throw new AlreadyExistsException([], this.SERVICE_NAME);
 
-      return await this.userRepository.createOne({
+      const createdUser = await this.userRepository.createOne({
         ...dto,
         password: await this.hashProvider.hash(dto.password),
       });
+      delete createdUser.password;
+      return createdUser;
     } catch (error) {
       CatchExceptions(error, [], this.SERVICE_NAME);
     }
