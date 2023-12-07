@@ -1,4 +1,4 @@
-import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CatchExceptions } from '../catchExceptions';
 import {
   USER_REPOSITORY,
@@ -7,6 +7,7 @@ import {
 import { SignUserInDTO } from '../../dtos/auth/signUserIn.dto';
 import { HashProvider } from '../../../infra/providers/hash.provider';
 import { JwtService } from '@nestjs/jwt';
+import { UnauthorizedException } from '../../exceptions/unauthorized.exception';
 
 export const SIGN_USER_IN_USECASE = 'SIGN_USER_IN_USECASE';
 

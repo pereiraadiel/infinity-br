@@ -11,11 +11,13 @@ import { VehicleTypeModule } from './vehicleType.module';
 import { DeliveryModule } from './delivery.module';
 import { HashModule } from './hash.module';
 import { AuthModule } from './auth.module';
+import { AuthInterceptorModule } from './authInterceptor.module';
 
 @Module({
   imports: [
     PrismaModule,
     AuthModule,
+    AuthInterceptorModule,
     HashModule,
     UsecasesModule,
     RepositoriesModule,
