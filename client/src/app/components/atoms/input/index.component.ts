@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class InputComponent {
   @Input() active: 'false' | 'true' = 'false';
+  @Input() type!: 'email' | 'password' | 'text';
   @Input() id!: string;
   @Input() placeholder!: string;
   @Input() label!: string;

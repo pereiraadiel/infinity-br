@@ -1,0 +1,44 @@
+.card {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  margin-top: 0.25rem;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  width: 100%;
+  transition: all 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  >p {
+    border: none;
+    font-size: var(--font-sm);
+    font-weight: 400;
+  }
+  >.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    >.button {
+      width: 2rem;
+      height: 2rem;
+      background-color: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      >img {
+        width: 80%;
+        height: 80%;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

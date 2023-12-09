@@ -34,3 +34,15 @@ body {
   height: 100vh;
   border: 1px solid red;
 }
+
+h1 {
+  font-size: var(--font-lg);
+}
+
+h2 {
+  font-size: var(--font-md);
+}
+
+p {
+  font-size: var(--font-sm);
+}

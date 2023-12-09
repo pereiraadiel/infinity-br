@@ -1,4 +1,16 @@
 <router-outlet>
-  <app-input id="texto" placeholder="texto" label="Titulo do texto" />
-  <app-button>Ola mundo</app-button>
+  <app-input id="email" label="E-mail" placeholder="Digite seu e-mail" type="email" />
+  <app-input id="password" label="Senha" placeholder="Digite sua senha" type="password" />
+  <app-button>Entrar</app-button>
+
+  <app-text variant="heading" content="texto de teste" />
+  <app-text variant="heading" link="https://ola.com" content="texto de teste" />
+  <app-text variant="subheading" content="texto de teste" />
+  <app-text variant="subheading" link="https://ola.com" content="texto de teste" />
+  <div class="head">
+    <app-text variant="paragraph" content="contate o suporte" />
+    <app-text variant="paragraph" link="https://ola.com" content="por este link" />
+  </div>
+
+  <app-card contentText="Geladeira - 15km"/>
 </router-outlet>

@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() active: 'false' | 'true' = 'false';
-
+  @Input() type: 'submit' | 'button' = 'submit';
   @Output() onClick = new EventEmitter();
 
   handleClick() {

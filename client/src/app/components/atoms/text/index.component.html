@@ -1,0 +1,31 @@
+<div class="text">
+  <div *ngIf="isLink()">
+    <a [href]="href()">
+      <h1 *ngIf="variant === 'heading'">
+        {{content}}
+      </h1>
+
+      <h2 *ngIf="variant === 'subheading'">
+        {{content}}
+      </h2>
+
+      <p *ngIf="variant === 'paragraph'">
+        {{content}}
+      </p>
+    </a>
+  </div>
+
+  <div *ngIf="!isLink()">
+    <h1 *ngIf="variant === 'heading'">
+      {{content}}
+    </h1>
+
+    <h2 *ngIf="variant === 'subheading'">
+      {{content}}
+    </h2>
+
+    <p *ngIf="variant === 'paragraph'">
+      {{content}}
+    </p>
+  </div>
+</div>
