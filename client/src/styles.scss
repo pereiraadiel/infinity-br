@@ -1,0 +1,36 @@
+:root {
+  --font-xs: 0.75rem;
+  --font-sm: 1rem;
+  --font-md: 1.25rem;
+  --font-lg: 1.5rem;
+  --font-xl: 1.75rem;
+
+  --bg-primary: #444444;
+  --bg-secondary: #555555;
+  --bg-tertiary: #696969;
+  --bg-accent: #5566FF;
+
+  --text-primary: #F3F3F3;
+  --text-secondary: #E3E3E3;
+  --text-tertiary: #D3D3D3;
+  --text-accent: #5588FF;
+
+  --border-radius: 0.75rem;
+}
+
+
+*, button {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: var(--text-primary);
+}
+
+body {
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border: 1px solid red;
+}
