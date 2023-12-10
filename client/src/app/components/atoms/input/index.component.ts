@@ -11,12 +11,17 @@ export class InputComponent {
   @Input() id!: string;
   @Input() placeholder!: string;
   @Input() label!: string;
-  @Input() value?: string;
+  @Input() value!: string;
 
-  @Output() onChange = new EventEmitter();
+  @Output() onChange = new EventEmitter<string>();
 
-  handleChange() {
-    this.onChange.emit();
+  constructor() {
+    if (!this.value) this.value = '';
+  }
+
+  handleChange(event: any) {
+    this.value = event.target.value;
+    this.onChange.emit(this.value);
   }
 
   isActive() {

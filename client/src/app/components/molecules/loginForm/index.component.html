@@ -1,0 +1,5 @@
+<form (submit)="handleSubmit()">
+  <app-input id="email" label="E-mail" placeholder="Digite seu e-mail" type="email" (onChange)="setEmail($event)" />
+  <app-input id="password" label="Senha" placeholder="Digite sua senha" type="password" (onChange)="setPassword($event)" />
+  <app-button [disabled]="isSubmiting">Entrar</app-button>
+</form>
