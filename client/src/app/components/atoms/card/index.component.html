@@ -1,14 +1,14 @@
 <div class="card">
   <p>{{contentText}}</p>
   <div class="action-buttons">
-    <button class="button">
+    <button class="button" *ngIf="variant === 'available'">
       <img src="assets/accept.svg" alt="Icone aceitar">
     </button>
-    <button class="button">
-      <img src="assets/delete.svg" alt="Icone remover">
-    </button>
-    <button class="button">
+    <button class="button" *ngIf="variant === 'my-shippings'">
       <img src="assets/delivery.svg" alt="Icone entregar">
+    </button>
+    <button class="button" *ngIf="variant === 'my-shippings' || variant === 'waiting'">
+      <img src="assets/delete.svg" alt="Icone remover">
     </button>
   </div>
 </div>

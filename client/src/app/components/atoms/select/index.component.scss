@@ -1,0 +1,16 @@
+.select {
+  width: 20rem;
+  >select {
+    margin-top: 0.25rem;
+    display: flex;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: none;
+    padding: 1.25rem 1rem;
+    border-radius: var(--border-radius);
+
+    >option {
+      background-color: var(--bg-secondary);
+    }
+  }
+}

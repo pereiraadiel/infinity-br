@@ -1,0 +1,9 @@
+<form class="shipping-form" (submit)="handleSubmit()">
+  <div>
+    <app-select id="product" [options]="[]" label="Selecione o produto" />
+    <app-input id="distance" label="Distancia" placeholder="Digite seu e-mail" type="email"
+      (onChange)="setDistance($event)" />
+    <app-select id="veiculo" [options]="[]" label="Selecione o veiculo" />
+  </div>
+  <app-button [disabled]="isSubmiting">Adicionar novo frete</app-button>
+</form>

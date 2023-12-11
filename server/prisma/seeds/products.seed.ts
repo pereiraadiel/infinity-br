@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { randomUUID } from 'crypto';
 
 export const createProducts = async (prisma: PrismaClient) => {
-  const [alreadyExistsShopman, alreadyExistsDeliveryman] = await Promise.all([
+  const [alreadyExistsRefrigerator, alreadyExistsTV] = await Promise.all([
     await prisma.product.findUnique({
       where: {
         name: 'Geladeira',
@@ -15,7 +15,7 @@ export const createProducts = async (prisma: PrismaClient) => {
     }),
   ]);
 
-  if (!alreadyExistsShopman) {
+  if (!alreadyExistsRefrigerator) {
     await prisma.product.create({
       data: {
         id: randomUUID(),
@@ -24,7 +24,7 @@ export const createProducts = async (prisma: PrismaClient) => {
       },
     });
   }
-  if (!alreadyExistsDeliveryman) {
+  if (!alreadyExistsTV) {
     await prisma.product.create({
       data: {
         id: randomUUID(),

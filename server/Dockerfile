@@ -11,6 +11,5 @@ COPY . .
 COPY .docker.env ./.env
 
 RUN yarn db:generate
-RUN yarn db:migrate
 
 EXPOSE 3000

@@ -10,7 +10,7 @@ export const createUsers = async (prisma: PrismaClient) => {
     }),
     await prisma.user.findUnique({
       where: {
-        email: 'delivery@infinity.br',
+        email: 'deliveryman@infinity.br',
       },
     }),
   ]);

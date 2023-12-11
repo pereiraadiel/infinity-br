@@ -1,0 +1,4 @@
+<div class="list">
+  <app-text variant="subheading" [content]="title" />
+  <app-card *ngFor="let item of items" [variant]="variant" [contentText]="item.content" />
+</div>

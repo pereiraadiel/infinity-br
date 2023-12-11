@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { randomUUID } from 'crypto';
 
 export const createVehicles = async (prisma: PrismaClient) => {
-  const [alreadyExistsShopman, alreadyExistsDeliveryman] = await Promise.all([
+  const [alreadyExistsS10, alreadyExistsVWTruck] = await Promise.all([
     await prisma.vehicle.findUnique({
       where: {
         plate: 'ABC1D23',
@@ -15,7 +15,7 @@ export const createVehicles = async (prisma: PrismaClient) => {
     }),
   ]);
 
-  if (!alreadyExistsShopman) {
+  if (!alreadyExistsS10) {
     await prisma.vehicle.create({
       data: {
         id: randomUUID(),
@@ -25,7 +25,7 @@ export const createVehicles = async (prisma: PrismaClient) => {
       },
     });
   }
-  if (!alreadyExistsDeliveryman) {
+  if (!alreadyExistsVWTruck) {
     await prisma.vehicle.create({
       data: {
         id: randomUUID(),

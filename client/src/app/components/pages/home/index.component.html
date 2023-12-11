@@ -1,0 +1,16 @@
+<section class="home">
+  <div class="head">
+    <app-text content="Olá" variant="heading" />
+    <app-text content="fazer logout" link="/logout" variant="heading" />
+  </div>
+
+  <div class="content">
+    <app-list title="Fretes Disponiveis" variant="available"
+      [items]="[{id: '', content: 'a'},{id: '', content: 'b'}]" />
+    <app-list title="Meus Fretes" variant="my-shippings" [items]="[{id: '', content: 'a'}]" />
+    <app-list title="Meus Fretes Entregues" [items]="[{id: '', content: 'a'}]" />
+  </div>
+
+  <app-text variant="subheading" content="Adicionar novo Frete" />
+  <app-shipping-form />
+</section>

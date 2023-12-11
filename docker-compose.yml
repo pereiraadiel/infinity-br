@@ -19,7 +19,7 @@ services:
     ports:
       - 8008:3000
     env_file: server/.docker.env
-    command: sh -c "yarn db:seed >> logs.txt && yarn start:dev"
+    command: sh -c "yarn db:seed && yarn start:dev"
     depends_on:
       - "postgres"
     networks:
